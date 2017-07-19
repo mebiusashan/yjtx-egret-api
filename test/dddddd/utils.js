@@ -173,7 +173,13 @@ function getReplacedStr(newNodestr, member) {
         else {
             description = "【静态】" + description;
         }
-        newNodestr = newNodestr.replace(/\{default\}/g, member["default"]);
+        //newNodestr = newNodestr.replace(/\{default\}/g, member["default"]);
+        if(member["default"]){
+            newNodestr = newNodestr.replace(/\{default\}/g, member["default"]);
+        }
+        else {
+            newNodestr = newNodestr.replace(/= \{default\}/g, "");
+        }
     }
 
     if (member["rwType"] == 1) {
